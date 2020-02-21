@@ -9,6 +9,30 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Results"
+            android:label = "Results"
+            android:parentActivityName=".PeopleAndItems">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=
+                    "com.example.onecheck.PeopleAndItems" />
+        </activity>
+        <activity android:name=".PeopleAndItems"
+            android:label = "PeopleAndItems"
+            android:parentActivityName=".People">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=
+                    "com.example.onecheck.People" />
+        </activity>
+        <activity android:name=".People"
+            android:label = "People"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=
+                    "com.example.onecheck.MainActivity" />
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

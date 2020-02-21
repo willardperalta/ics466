@@ -6,16 +6,17 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class People extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_people);
     }
 
-    public void launchPeopleActivity(View view) {
-        Intent intent = new Intent(this, People.class);
+
+    public void launchPeopleAndItemsActivity(View view) {
+        Intent intent = new Intent(this, PeopleAndItems.class);
         startActivity(intent);
     }
 }

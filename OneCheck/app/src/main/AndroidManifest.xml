@@ -9,29 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Results"
-            android:label = "Results"
+        <activity
+            android:name=".ListViewActivity"
+            android:label="ListViewActivity"
+            android:parentActivityName=".People">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value="com.example.onecheck.People" />
+        </activity>
+        <activity
+            android:name=".Results"
+            android:label="Results"
             android:parentActivityName=".PeopleAndItems">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.onecheck.PeopleAndItems" />
+                android:value="com.example.onecheck.PeopleAndItems" />
         </activity>
-        <activity android:name=".PeopleAndItems"
-            android:label = "PeopleAndItems"
+        <activity
+            android:name=".PeopleAndItems"
+            android:label="PeopleAndItems"
             android:parentActivityName=".People">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.onecheck.People" />
+                android:value="com.example.onecheck.People" />
         </activity>
-        <activity android:name=".People"
-            android:label = "People"
+        <activity
+            android:name=".People"
+            android:label="People"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=
-                    "com.example.onecheck.MainActivity" />
+                android:value="com.example.onecheck.MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

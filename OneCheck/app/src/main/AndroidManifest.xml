@@ -17,6 +17,8 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value="com.example.onecheck.People" />
         </activity>
+        <activity android:name=".Items"></activity>
+        <activity android:name=".AddItems" />
         <activity
             android:name=".Results"
             android:label="Results"

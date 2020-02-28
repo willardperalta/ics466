@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class ListViewActivity extends AppCompatActivity implements MyRecyclerViewAdapter.ItemClickListener{
 
     MyRecyclerViewAdapter adapter;
+    ArrayList<String> animalNames = new ArrayList<>();
 
 
     @Override
@@ -22,7 +23,6 @@ public class ListViewActivity extends AppCompatActivity implements MyRecyclerVie
 
 
         // data to populate the RecyclerView with
-        ArrayList<String> animalNames = new ArrayList<>();
         animalNames.add("Horse");
         animalNames.add("Cow");
         animalNames.add("Camel");
@@ -40,6 +40,13 @@ public class ListViewActivity extends AppCompatActivity implements MyRecyclerVie
     @Override
     public void onItemClick(View view, int position) {
         Toast.makeText(this, "You clicked " + adapter.getItem(position) + " on row number " + position, Toast.LENGTH_SHORT).show();
+    }
+
+
+    public void addSingleItem(View view) {
+        int insertIndex = animalNames.size();
+        animalNames.add("single_item");
+        adapter.notifyItemInserted(insertIndex);
     }
 
 

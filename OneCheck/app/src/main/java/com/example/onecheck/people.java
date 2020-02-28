@@ -3,6 +3,8 @@ package com.example.onecheck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -13,6 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class People extends AppCompatActivity{
 
     MyRecyclerViewAdapter adapter;
+    ArrayList<String> names = new ArrayList<>();
+    Button mButton;
+    EditText mEdit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +26,24 @@ public class People extends AppCompatActivity{
         setContentView(R.layout.activity_people);
 
 
+        mButton = (Button)findViewById(R.id.addName);
+        mEdit   = (EditText)findViewById(R.id.nameInput);
+
+        mButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        String nameInputString = mEdit.getText().toString();
+                        int insertIndex = names.size();
+
+                        names.add(nameInputString);
+                        adapter.notifyItemInserted(insertIndex);
+                    }
+                });
 
         // data to populate the RecyclerView with
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Thomas");
-        names.add("Michelle");
-        names.add("Greg");
-        names.add("Fred");
-        names.add("Lisa");
-        names.add("Lisa");
-        names.add("Lisa");
-        names.add("Lisa");
+
 
 
         // set up the RecyclerView
@@ -44,6 +57,8 @@ public class People extends AppCompatActivity{
 
     public void launchPeopleAndItemsActivity(View view) {
         Intent intent = new Intent(this, PeopleAndItems.class);
+        /* putExtra adds extra data to the intent, "key" can be anything you choose */
+        intent.putExtra("key", names);
         startActivity(intent);
     }
 
@@ -51,4 +66,7 @@ public class People extends AppCompatActivity{
         Intent intent = new Intent(this, ListViewActivity.class);
         startActivity(intent);
     }
+
+
+
 }

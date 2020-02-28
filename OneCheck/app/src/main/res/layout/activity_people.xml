@@ -42,17 +42,7 @@
         android:layout_marginEnd="202dp"
         android:layout_marginRight="202dp" />
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="114dp"
-        android:layout_height="83dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginRight="55dp"
-        android:text="Add+ Contacts" />
+
 
     <Button
         android:id="@+id/button5"
@@ -70,4 +60,40 @@
         android:layout_marginBottom="44dp"
         android:onClick="launchListViewActivity"
         android:text="Activity to test Recycler view" />
+
+    <EditText
+        android:id="@+id/nameInput"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="257dp"
+        android:layout_marginBottom="182dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
+    <Button
+        android:id="@+id/addContact"
+        android:layout_width="128dp"
+        android:layout_height="65dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="230dp"
+        android:layout_marginEnd="23dp"
+        android:layout_marginRight="23dp"
+        android:text="Add From Contacts" />
+
+    <Button
+        android:id="@+id/addName"
+        android:layout_width="74dp"
+        android:layout_height="58dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="171dp"
+        android:layout_marginRight="171dp"
+        android:layout_marginBottom="177dp"
+        android:text="Add Name" />
 </RelativeLayout>

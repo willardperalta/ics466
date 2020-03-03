@@ -19,7 +19,7 @@
         android:layout_marginRight="204dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/results"
         android:layout_width="215dp"
         android:layout_height="90dp"
         android:layout_alignParentBottom="true"

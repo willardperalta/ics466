@@ -3,8 +3,11 @@ package com.example.onecheck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,6 +19,9 @@ public class PeopleAndItems extends AppCompatActivity {
 
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> items = new ArrayList<>();
+    HashMap<String, Integer> results = new HashMap<>();
+    Button mButton;
+    EditText mEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +57,19 @@ public class PeopleAndItems extends AppCompatActivity {
         adapter = new MyRecyclerViewAdapter(this, items);
         recyclerViewItems.setAdapter(adapter);
 
+
+        results.put("Thomas", 22);
+        results.put("Michelle", 14);
+        results.put("Greg", 12);
+        results.put("Fred", 32);
+        results.put("Lisa", 22);
+
+
     }
 
     public void launchResultsActivity(View view) {
         Intent intent = new Intent(this, Results.class);
+        intent.putExtra("key", names);
         startActivity(intent);
     }
 }

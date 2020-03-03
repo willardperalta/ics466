@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.util.HashMap;
 import java.util.List;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
     private List<String> mData;
+    private HashMap<String, Integer> hashMapData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
@@ -35,6 +37,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         String animal = mData.get(position);
         holder.myTextView.setText(animal);
     }
+
 
     // total number of rows
     @Override

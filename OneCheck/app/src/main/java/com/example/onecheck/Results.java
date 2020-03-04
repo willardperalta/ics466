@@ -20,15 +20,6 @@ public class Results extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        /* Get the names ArrayList using an intent method */
-        Intent listIntent = getIntent();
-        names = (ArrayList<String>) listIntent.getSerializableExtra("key");
-
-        // set up the RecyclerView
-        RecyclerView recyclerViewPeople = findViewById(R.id.people);
-        recyclerViewPeople.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, names);
-        recyclerViewPeople.setAdapter(adapter);
 
         // data to populate the RecyclerView with
         ArrayList<String> results = new ArrayList<>();

@@ -13,4 +13,9 @@ public class Items extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items);
     }
+
+    public void launchPeopleActivity(View view) {
+        Intent intent = new Intent(this, People.class);
+        startActivity(intent);
+    }
 }

@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/people"
+        android:id="@+id/itemsView"
         android:layout_width="175dp"
         android:layout_height="236dp"
         android:layout_alignParentTop="true"

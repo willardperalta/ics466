@@ -14,6 +14,7 @@ public class TaxAndTip extends AppCompatActivity {
 
     float tax;
     float tip;
+    ArrayList<String> items = new ArrayList<>();
     Button totalButton;
     EditText taxEdit;
     EditText tipEdit;
@@ -29,10 +30,15 @@ public class TaxAndTip extends AppCompatActivity {
 
         tax = (float)taxEdit.getInputType();
         tip = (float)tipEdit.getInputType();
+
+        /* Get the items ArrayList using an intent method */
+        Intent listIntent = getIntent();
+        items = (ArrayList<String>) listIntent.getSerializableExtra("key");
     }
 
     public void launchItemsActivity(View view) {
         Intent intent = new Intent(this, Items.class);
+        intent.putExtra("key", items);
         startActivity(intent);
     }
 }

@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class AddItems extends AppCompatActivity {
 
-    MyRecyclerViewAdapter adapter;
     ArrayList<String> items = new ArrayList<>();
     ArrayList<Float> cost = new ArrayList<>();
     Button addButton;
@@ -44,6 +43,7 @@ public class AddItems extends AppCompatActivity {
 
     public void launchTaxAndTipActivity(View view) {
         Intent intent = new Intent(this, TaxAndTip.class);
+        intent.putExtra("key", items);
         startActivity(intent);
     }
 }

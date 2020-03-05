@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class AddItems extends AppCompatActivity {
 
     ArrayList<String> items = new ArrayList<>();
-    ArrayList<Float> cost = new ArrayList<>();
+    ArrayList<Double> cost = new ArrayList<>();
     Button addButton;
     EditText itemEdit;
     EditText costEdit;
@@ -33,7 +33,7 @@ public class AddItems extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         String itemInputString = itemEdit.getText().toString();
-                        float costInput = (float)costEdit.getInputType();
+                        double costInput = (double) costEdit.getInputType();
 
                         items.add(itemInputString);
                         cost.add(costInput);
@@ -44,6 +44,7 @@ public class AddItems extends AppCompatActivity {
     public void launchTaxAndTipActivity(View view) {
         Intent intent = new Intent(this, TaxAndTip.class);
         intent.putExtra("key", items);
+        intent.putExtra("key2", items);
         startActivity(intent);
     }
 }

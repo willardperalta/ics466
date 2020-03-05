@@ -7,14 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class TaxAndTip extends AppCompatActivity {
 
-    float tax;
-    float tip;
+    double tax;
+    double tip;
     ArrayList<String> items = new ArrayList<>();
+    ArrayList<Double> cost = new ArrayList<>();
     Button totalButton;
     EditText taxEdit;
     EditText tipEdit;
@@ -28,17 +30,25 @@ public class TaxAndTip extends AppCompatActivity {
         taxEdit = (EditText) findViewById(R.id.taxEdit);
         tipEdit = (EditText) findViewById(R.id.tipEdit);
 
-        tax = (float)taxEdit.getInputType();
-        tip = (float)tipEdit.getInputType();
+        tax = (double) taxEdit.getInputType();
+        tax = (double) taxEdit.getInputType();
+        tip = (double) tipEdit.getInputType();
 
-        /* Get the items ArrayList using an intent method */
+        /* Get the items and cost ArrayList using an intent method */
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("key");
+        cost = (ArrayList<Double>) listIntent.getSerializableExtra("key2");
+
+        //TextView textView = (TextView) findViewById(R.id.totalValue);
+        //textView.setText(Double.toString(cost.get(0)));
     }
 
     public void launchItemsActivity(View view) {
         Intent intent = new Intent(this, Items.class);
         intent.putExtra("key", items);
+        intent.putExtra("key2", items);
+        intent.putExtra("tax", tax);
+        intent.putExtra("tip", tip);
         startActivity(intent);
     }
 }

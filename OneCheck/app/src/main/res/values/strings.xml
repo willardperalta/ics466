@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">OneCheck</string>
+    <string name="title_activity_tax_and_tip">TaxAndTip</string>
 </resources>

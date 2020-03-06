@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".TaxAndTip"
+            android:label="TaxAndTip"
+            android:parentActivityName=".AddItems">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.onecheck.AddItems" />
+        </activity>
+        <activity
             android:name=".ListViewActivity"
             android:label="ListViewActivity"
             android:parentActivityName=".People">
@@ -19,8 +27,22 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.People" />
         </activity>
-        <activity android:name=".Items" />
-        <activity android:name=".AddItems" />
+        <activity
+            android:name=".Items"
+            android:label="Items"
+            android:parentActivityName=".TaxAndTip">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.onecheck.TaxAndTip" />
+        </activity>
+        <activity
+            android:name=".AddItems"
+            android:label="AddItems"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.onecheck.MainActivity" />
+        </activity>
         <activity
             android:name=".Results"
             android:label="Results"
@@ -40,10 +62,10 @@
         <activity
             android:name=".People"
             android:label="People"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".Items">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.onecheck.MainActivity" />
+                android:value="com.example.onecheck.Items" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

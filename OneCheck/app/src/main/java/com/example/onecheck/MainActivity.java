@@ -20,4 +20,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void launchAddItemActivity(View view) {
+        Intent intent = new Intent(this, AddItems.class);
+        startActivity(intent);
+    }
 }

@@ -43,8 +43,8 @@ public class AddItems extends AppCompatActivity {
 
     public void launchTaxAndTipActivity(View view) {
         Intent intent = new Intent(this, TaxAndTip.class);
-        intent.putExtra("key", items);
-        intent.putExtra("key2", cost);
+        intent.putExtra("item", items);
+        intent.putExtra("cost", cost);
         startActivity(intent);
     }
 }

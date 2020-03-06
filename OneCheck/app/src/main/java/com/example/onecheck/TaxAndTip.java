@@ -35,8 +35,8 @@ public class TaxAndTip extends AppCompatActivity {
 
         /* Get the items and cost ArrayList using an intent method */
         Intent listIntent = getIntent();
-        items = (ArrayList<String>) listIntent.getSerializableExtra("key");
-        cost = (ArrayList<Double>) listIntent.getSerializableExtra("key2");
+        items = (ArrayList<String>) listIntent.getSerializableExtra("item");
+        cost = (ArrayList<Double>) listIntent.getSerializableExtra("cost");
 
         //TextView textView = (TextView) findViewById(R.id.totalValue);
         //textView.setText(Double.toString(cost.get(0)));
@@ -44,8 +44,8 @@ public class TaxAndTip extends AppCompatActivity {
 
     public void launchItemsActivity(View view) {
         Intent intent = new Intent(this, Items.class);
-        intent.putExtra("key", items);
-        intent.putExtra("key2", cost);
+        intent.putExtra("item", items);
+        intent.putExtra("cost", cost);
         intent.putExtra("tax", tax);
         intent.putExtra("tip", tip);
         startActivity(intent);

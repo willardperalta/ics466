@@ -30,8 +30,8 @@ public class Items extends AppCompatActivity {
 
         /* Get the items and cost ArrayList and the tax and tip using an intent method */
         Intent listIntent = getIntent();
-        items = (ArrayList<String>) listIntent.getSerializableExtra("key");
-        cost = (ArrayList<Double>) listIntent.getSerializableExtra("key2");
+        items = (ArrayList<String>) listIntent.getSerializableExtra("item");
+        cost = (ArrayList<Double>) listIntent.getSerializableExtra("cost");
         tax = (double) listIntent.getDoubleExtra("tax", 0);
         tip = (double) listIntent.getDoubleExtra("tip", 0);
 

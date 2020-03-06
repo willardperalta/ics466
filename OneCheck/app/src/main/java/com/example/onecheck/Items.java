@@ -32,7 +32,8 @@ public class Items extends AppCompatActivity {
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("key");
         cost = (ArrayList<Double>) listIntent.getSerializableExtra("key2");
-
+        tax = (double) listIntent.getDoubleExtra("tax", 0);
+        tip = (double) listIntent.getDoubleExtra("tip", 0);
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.itemsView);
@@ -43,7 +44,7 @@ public class Items extends AppCompatActivity {
         //total = getTotal(tax, tip, cost);
 
         //displays total
-        totalText = Double.toString(total);
+        totalText = Double.toString(tax);
         TextView textView = (TextView) findViewById(R.id.totalValue);
         textView.setText(totalText);
     }

@@ -31,7 +31,6 @@ public class TaxAndTip extends AppCompatActivity {
         tipEdit = (EditText) findViewById(R.id.tipEdit);
 
         tax = (double) taxEdit.getInputType();
-        tax = (double) taxEdit.getInputType();
         tip = (double) tipEdit.getInputType();
 
         /* Get the items and cost ArrayList using an intent method */
@@ -46,7 +45,7 @@ public class TaxAndTip extends AppCompatActivity {
     public void launchItemsActivity(View view) {
         Intent intent = new Intent(this, Items.class);
         intent.putExtra("key", items);
-        intent.putExtra("key2", items);
+        intent.putExtra("key2", cost);
         intent.putExtra("tax", tax);
         intent.putExtra("tip", tip);
         startActivity(intent);

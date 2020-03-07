@@ -16,6 +16,7 @@ public class People extends AppCompatActivity{
 
     MyRecyclerViewAdapter adapter;
     ArrayList<String> names = new ArrayList<>();
+    ArrayList<String> items = new ArrayList<>();
     Button mButton;
     EditText mEdit;
 
@@ -28,6 +29,9 @@ public class People extends AppCompatActivity{
 
         mButton = (Button)findViewById(R.id.addName);
         mEdit   = (EditText)findViewById(R.id.nameInput);
+
+        Intent listIntent = getIntent();
+        items = (ArrayList<String>) listIntent.getSerializableExtra("item");
 
         mButton.setOnClickListener(
                 new View.OnClickListener()
@@ -59,6 +63,7 @@ public class People extends AppCompatActivity{
         Intent intent = new Intent(this, PeopleAndItems.class);
         /* putExtra adds extra data to the intent, "key" can be anything you choose */
         intent.putExtra("key", names);
+        intent.putExtra("item", items);
         startActivity(intent);
     }
 

@@ -31,6 +31,8 @@ public class PeopleAndItems extends AppCompatActivity {
         /* Get the names ArrayList using an intent method */
         Intent listIntent = getIntent();
         names = (ArrayList<String>) listIntent.getSerializableExtra("key");
+        items = (ArrayList<String>) listIntent.getSerializableExtra("item");
+
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.people);
@@ -39,18 +41,6 @@ public class PeopleAndItems extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
 
-        // data to populate the RecyclerView with
-
-        items.add("fries");
-        items.add("fries");
-        items.add("fries");
-        items.add("fries");
-        items.add("fries");
-        items.add("burger");
-        items.add("burger");
-        items.add("burger");
-        items.add("burger");
-        items.add("burger");
         // set up the RecyclerView
         RecyclerView recyclerViewItems = findViewById(R.id.items);
         recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));

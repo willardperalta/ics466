@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class TaxAndTip extends AppCompatActivity {
 
-    double tax;
-    double tip;
+    String tax;
+    String tip;
     ArrayList<String> items = new ArrayList<>();
-    ArrayList<Double> cost = new ArrayList<>();
-    Button totalButton;
+    ArrayList<String> cost = new ArrayList<>();
+    Button confirmButton;
     EditText taxEdit;
     EditText tipEdit;
 
@@ -26,17 +26,24 @@ public class TaxAndTip extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tax_and_tip);
 
-        totalButton = (Button) findViewById(R.id.total);
+        confirmButton = (Button) findViewById(R.id.confirm);
         taxEdit = (EditText) findViewById(R.id.taxEdit);
         tipEdit = (EditText) findViewById(R.id.tipEdit);
 
-        tax = (double) taxEdit.getInputType();
-        tip = (double) tipEdit.getInputType();
+        confirmButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        tax = taxEdit.getText().toString();
+                        tip = tipEdit.getText().toString();
+                    }
+                });
 
         /* Get the items and cost ArrayList using an intent method */
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
-        cost = (ArrayList<Double>) listIntent.getSerializableExtra("cost");
+        cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
 
         //TextView textView = (TextView) findViewById(R.id.totalValue);
         //textView.setText(Double.toString(cost.get(0)));

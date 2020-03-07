@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class AddItems extends AppCompatActivity {
 
     ArrayList<String> items = new ArrayList<>();
-    ArrayList<Double> cost = new ArrayList<>();
+    ArrayList<String> cost = new ArrayList<>();
     Button addButton;
     EditText itemEdit;
     EditText costEdit;
@@ -33,7 +33,7 @@ public class AddItems extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         String itemInputString = itemEdit.getText().toString();
-                        double costInput = (double) costEdit.getInputType();
+                        String costInput = costEdit.getText().toString();
 
                         items.add(itemInputString);
                         cost.add(costInput);

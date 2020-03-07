@@ -3,6 +3,8 @@ package com.example.onecheck;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,13 +17,14 @@ import java.util.ArrayList;
 
 public class Items extends AppCompatActivity {
 
-    double tax;
-    double tip;
+    String tax;
+    String tip;
     double total;
     String totalText;
     MyRecyclerViewAdapter adapter;
     ArrayList<String> items = new ArrayList<>();
-    ArrayList<Double> cost = new ArrayList<>();
+    ArrayList<String> cost = new ArrayList<>();
+    private static DecimalFormat df2 = new DecimalFormat("#.00");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,36 +34,44 @@ public class Items extends AppCompatActivity {
         /* Get the items and cost ArrayList and the tax and tip using an intent method */
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
-        cost = (ArrayList<Double>) listIntent.getSerializableExtra("cost");
-        tax = (double) listIntent.getDoubleExtra("tax", 0);
-        tip = (double) listIntent.getDoubleExtra("tip", 0);
+        cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
+        tax = listIntent.getStringExtra("tax");
+        tip = listIntent.getStringExtra("tip");
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.itemsView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        RecyclerView recyclerViewItems = findViewById(R.id.itemsView);
+        recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, items);
-        recyclerView.setAdapter(adapter);
+        recyclerViewItems.setAdapter(adapter);
 
-        //total = getTotal(tax, tip, cost);
+        // set up the RecyclerView
+        RecyclerView recyclerViewCost = findViewById(R.id.costView);
+        recyclerViewCost.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, cost);
+        recyclerViewCost.setAdapter(adapter);
+
+        total = getTotal(tax, tip, cost);
 
         //displays total
-        totalText = Double.toString(tax);
+        totalText = df2.format(total);
         TextView textView = (TextView) findViewById(R.id.totalValue);
         textView.setText(totalText);
     }
 
-    public double getTotal(double tax, double tip, ArrayList<Double> costItems)
+    public double getTotal(String tax, String tip, ArrayList<String> costItems)
     {
+        double taxNum = Double.parseDouble(tax);
+        double tipNum = Double.parseDouble(tip);
         double thisTotal = 0;
 
         for (int i = 0; i < costItems.size(); i++) {
-            thisTotal += costItems.get(i);
+            thisTotal += Double.parseDouble(costItems.get(i));
         }
 
-        //tax = tax / 100;
-        //tip = tip / 100;
-        //thisTotal *= (1 + tax);
-        //thisTotal *= (1 + tip);
+        taxNum = taxNum / 100;
+        tipNum = tipNum / 100;
+        thisTotal *= (1 + taxNum);
+        thisTotal *= (1 + tipNum);
 
         return thisTotal;
     }

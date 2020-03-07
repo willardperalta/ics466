@@ -38,21 +38,20 @@ public class Items extends AppCompatActivity {
         tax = listIntent.getStringExtra("tax");
         tip = listIntent.getStringExtra("tip");
 
-        // set up the RecyclerView
+        // set up the RecyclerView for items
         RecyclerView recyclerViewItems = findViewById(R.id.itemsView);
         recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, items);
         recyclerViewItems.setAdapter(adapter);
 
-        // set up the RecyclerView
+        // set up the RecyclerView for price of items
         RecyclerView recyclerViewCost = findViewById(R.id.costView);
         recyclerViewCost.setLayoutManager(new LinearLayoutManager(this));
         adapter = new MyRecyclerViewAdapter(this, cost);
         recyclerViewCost.setAdapter(adapter);
 
+        //calculate and displays total
         total = getTotal(tax, tip, cost);
-
-        //displays total
         totalText = df2.format(total);
         TextView textView = (TextView) findViewById(R.id.totalValue);
         textView.setText(totalText);

@@ -1,14 +1,17 @@
 package com.example.onecheck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class AddItems extends AppCompatActivity {
 
@@ -37,6 +40,15 @@ public class AddItems extends AppCompatActivity {
 
                         items.add(itemInputString);
                         cost.add(costInput);
+
+                        // Tell User that an item was added
+                        Context context = getApplicationContext();
+                        CharSequence text = "Item Added";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
+                        toast.show();
+
                     }
                 });
     }

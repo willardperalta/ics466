@@ -17,6 +17,7 @@ public class People extends AppCompatActivity{
     MyRecyclerViewAdapter adapter;
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> items = new ArrayList<>();
+    ArrayList<String> cost = new ArrayList<>();
     Button mButton;
     EditText mEdit;
 
@@ -32,6 +33,7 @@ public class People extends AppCompatActivity{
 
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
+        cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
 
         mButton.setOnClickListener(
                 new View.OnClickListener()
@@ -64,6 +66,7 @@ public class People extends AppCompatActivity{
         /* putExtra adds extra data to the intent, "key" can be anything you choose */
         intent.putExtra("key", names);
         intent.putExtra("item", items);
+        intent.putExtra("cost", cost);
         startActivity(intent);
     }
 

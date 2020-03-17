@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -16,10 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 public class PeopleAndItems extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter;
+    MyRecyclerViewAdapter2 adapter2;
+    EditText addPrice;
 
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> items = new ArrayList<>();
-    HashMap<String, Integer> results = new HashMap<>();
+    ArrayList<String> cost = new ArrayList<>();
+    ArrayList<String> itemsAndCost = new ArrayList<>();
+    ArrayList<String> resultCosts = new ArrayList<>();
     Button mButton;
     EditText mEdit;
 
@@ -28,31 +31,36 @@ public class PeopleAndItems extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people_and_items);
 
+
+
         /* Get the names ArrayList using an intent method */
         Intent listIntent = getIntent();
         names = (ArrayList<String>) listIntent.getSerializableExtra("key");
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
+        cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
 
 
-        // set up the RecyclerView
+        for (int i = 0; i < items.size(); i++) {
+            itemsAndCost.add(items.get(i) + ": $" + cost.get(i));
+        }
+
+
+        // set up the RecyclerView for names
         RecyclerView recyclerView = findViewById(R.id.people);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, names);
-        recyclerView.setAdapter(adapter);
+        adapter2 = new MyRecyclerViewAdapter2(this, names);
+        recyclerView.setAdapter(adapter2);
 
 
-        // set up the RecyclerView
-        RecyclerView recyclerViewItems = findViewById(R.id.items);
+        // set up the RecyclerView for items
+        RecyclerView recyclerViewItems = findViewById(R.id.itemsAndCost);
         recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, items);
+        adapter = new MyRecyclerViewAdapter(this, itemsAndCost);
         recyclerViewItems.setAdapter(adapter);
 
-
-        results.put("Thomas", 22);
-        results.put("Michelle", 14);
-        results.put("Greg", 12);
-        results.put("Fred", 32);
-        results.put("Lisa", 22);
+        for (int i = 0; i < names.size(); i++) {
+            resultCosts.add(cost.get(i));
+        }
 
 
     }
@@ -60,6 +68,11 @@ public class PeopleAndItems extends AppCompatActivity {
     public void launchResultsActivity(View view) {
         Intent intent = new Intent(this, Results.class);
         intent.putExtra("key", names);
+        intent.putExtra("resultCosts", resultCosts);
         startActivity(intent);
+    }
+
+    public void addItemToPerson() {
+
     }
 }

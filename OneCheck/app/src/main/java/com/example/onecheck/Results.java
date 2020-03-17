@@ -14,6 +14,7 @@ public class Results extends AppCompatActivity {
     MyRecyclerViewAdapter adapter;
 
     ArrayList<String> names = new ArrayList<>();
+    ArrayList<String> resultCosts = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,23 +22,22 @@ public class Results extends AppCompatActivity {
         setContentView(R.layout.activity_results);
 
 
-        // data to populate the RecyclerView with
-        ArrayList<String> results = new ArrayList<>();
-        results.add("Thomas: $22");
-        results.add("Michelle: $14");
-        results.add("Greg: $12");
-        results.add("Fred: $32");
-        results.add("Lisa: $22");
-        results.add("Lisa: $22");
-        results.add("Lisa: $22");
-        results.add("Lisa: $22");
+        Intent listIntent = getIntent();
+        names = (ArrayList<String>) listIntent.getSerializableExtra("key");
+        resultCosts = (ArrayList<String>) listIntent.getSerializableExtra("resultCosts");
 
 
 
         // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.results);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, results);
-        recyclerView.setAdapter(adapter);
+        RecyclerView recyclerViewNames = findViewById(R.id.resultsnames);
+        recyclerViewNames.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, names);
+        recyclerViewNames.setAdapter(adapter);
+
+        // set up the RecyclerView
+        RecyclerView recyclerViewCosts = findViewById(R.id.resultscosts);
+        recyclerViewCosts.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new MyRecyclerViewAdapter(this, resultCosts);
+        recyclerViewCosts.setAdapter(adapter);
     }
 }

@@ -75,6 +75,7 @@ public class Items extends AppCompatActivity {
     public void launchPeopleActivity(View view) {
         Intent intent = new Intent(this, People.class);
         intent.putExtra("item", items);
+        intent.putExtra("cost", cost);
         startActivity(intent);
     }
 }

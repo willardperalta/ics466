@@ -15,7 +15,8 @@ public class PeopleAndItems extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter; //used to display default row
     MyRecyclerViewAdapter2 adapter2; //customized from first adapter to include a button in each row
-    EditText addPrice; //text field to manually add a price to a peson
+    EditText addPrice; //text field to manually add a price to a person
+    //Button addPriceButton = (Button) findViewById(R.id.debugbutton);
 
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> items = new ArrayList<>();
@@ -55,10 +56,30 @@ public class PeopleAndItems extends AppCompatActivity {
         adapter = new MyRecyclerViewAdapter(this, itemsAndCost);
         recyclerViewItems.setAdapter(adapter);
 
-
-        addPrice = (EditText) findViewById(R.id.addPrice); //editText View to add price to specific person
+        //recyclerView.findViewHolderForAdapterPosition(0);
         resultCosts.add(0, "0"); //initialize first entry with "0" for testing purposes
+        resultCosts.add(1, "1");
+        resultCosts.add(2, "2");
 
+/*
+        addPriceButton.setOnClickListener(
+                new View.OnClickListener()
+                {
+                    public void onClick(View view)
+                    {
+                        String result = addTwoNumberString(resultCosts.get(0), "5");//(addPrice.getText().toString()));
+                        resultCosts.add(0, result);
+
+                        // Tell User that an item was added
+                        Context context = getApplicationContext();
+                        CharSequence text = "Item Price Added";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
+                        toast.show();
+
+                    }
+                });*/
 
     }
 
@@ -71,7 +92,7 @@ public class PeopleAndItems extends AppCompatActivity {
 
     public void addItemToPerson() {
         //add the string in resultCosts plus what was in the addPrice editText view
-        String result = addTwoNumberString(resultCosts.get(0), (addPrice.getText().toString()));
+        String result = addTwoNumberString(resultCosts.get(0), "5");//(addPrice.getText().toString()));
         resultCosts.add(0, result);
     }
 

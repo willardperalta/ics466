@@ -59,7 +59,12 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
 
         @Override
         public void onClick(View view) {
-            if (mClickListener != null) mClickListener.onItemClick(view, getAdapterPosition());
+            if (mClickListener != null) {
+                mClickListener.onItemClick(view, getAdapterPosition());
+
+                // Tell User that an item was added
+                System.out.println("VIEW WAS CLICKED");
+            }
         }
     }
 

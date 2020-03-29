@@ -3,7 +3,6 @@ package com.example.onecheck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -15,8 +14,9 @@ public class PeopleAndItems extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter; //used to display default row
     MyRecyclerViewAdapter2 adapter2; //customized from first adapter to include a button in each row
-    EditText addPrice; //text field to manually add a price to a person
+
     //Button addPriceButton = (Button) findViewById(R.id.debugbutton);
+    //EditText addPrice = (EditText) findViewById(R.id.test);   //text field to manually add a price to a person
 
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> items = new ArrayList<>();
@@ -58,8 +58,7 @@ public class PeopleAndItems extends AppCompatActivity {
 
         //recyclerView.findViewHolderForAdapterPosition(0);
         resultCosts.add(0, "0"); //initialize first entry with "0" for testing purposes
-        resultCosts.add(1, "1");
-        resultCosts.add(2, "2");
+
 
 /*
         addPriceButton.setOnClickListener(
@@ -90,17 +89,17 @@ public class PeopleAndItems extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void addItemToPerson() {
+    public void addItemToPerson(View view) {
         //add the string in resultCosts plus what was in the addPrice editText view
-        String result = addTwoNumberString(resultCosts.get(0), "5");//(addPrice.getText().toString()));
-        resultCosts.add(0, result);
+        resultCosts.add(0, "$" + addTwoNumberString(resultCosts.get(0), "7"));
+        resultCosts.remove(1);
+
     }
 
     public String addTwoNumberString(String first, String second) {
         //convert string to double so can add them together, then put back to string to add back to arraylist
-        String result = Double.toString((Double.parseDouble(first) + Double.parseDouble(second)));
         //format the result to two decimal places
-        return String.format("%.2f", result);
+        return String.format("%.2f", (Double.parseDouble(first) + Double.parseDouble(second)));
     }
 
 }

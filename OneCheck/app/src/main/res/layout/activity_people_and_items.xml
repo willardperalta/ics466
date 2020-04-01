@@ -27,6 +27,8 @@
         android:layout_marginBottom="21dp"
         android:onClick="launchResultsActivity"
         android:text="Results"
+        android:background="#03A9F4"
+        android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +56,7 @@
         android:layout_marginTop="52dp"
         android:text="Items"
         android:textSize="24sp"
+        android:fontFamily="@font/voltaire"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -61,6 +64,7 @@
         android:id="@+id/itemsAndCost"
         android:layout_width="162dp"
         android:layout_height="254dp"
+        android:fontFamily="@font/voltaire"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"

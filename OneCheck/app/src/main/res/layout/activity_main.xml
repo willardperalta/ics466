@@ -8,31 +8,35 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="165dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="540dp"
+        android:layout_width="256dp"
+        android:layout_height="193dp"
+        android:layout_marginBottom="144dp"
+        android:background="#3F51B5"
+        android:fontFamily="@font/voltaire"
         android:onClick="launchPeopleActivity"
-        android:text="GO TO PEOPLE ACTIVITY"
+        android:text="GO TO PEOPLE ACTIVITY (Change to: view history)"
         android:textSize="24sp"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="165dp"
-        android:layout_height="110dp"
-        android:layout_marginTop="400dp"
+        android:layout_width="257dp"
+        android:layout_height="190dp"
+        android:layout_marginTop="136dp"
+        android:background="#03A9F4"
+        android:fontFamily="@font/voltaire"
         android:onClick="launchAddItemActivity"
-        android:text="GO TO ADD ITEM ACTIVITY"
+        android:text="GO TO ADD ITEM ACTIVITY (Change to: Add new check)"
+        android:textColor="#ffffff"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

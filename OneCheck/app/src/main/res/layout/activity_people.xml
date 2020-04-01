@@ -18,23 +18,29 @@
         android:layout_marginEnd="89dp"
         android:layout_marginRight="89dp"
         android:text="People"
+        android:fontFamily="@font/voltaire"
         android:textSize="24sp" />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="130dp"
-        android:layout_height="82dp"
+        android:layout_width="163dp"
+        android:layout_height="73dp"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="140dp"
         android:layout_marginLeft="140dp"
         android:layout_marginTop="620dp"
+        android:background="#03A9F4"
+        android:fontFamily="@font/voltaire"
         android:onClick="launchPeopleAndItemsActivity"
         android:text="Assign Items"
-       />
+        android:textSize="24sp"
+        android:textColor="#ffffff" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/people"
         android:layout_width="175dp"
         android:layout_height="236dp"
+        android:fontFamily="@font/voltaire"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
@@ -68,6 +74,9 @@
         android:layout_marginTop="230dp"
         android:layout_marginEnd="23dp"
         android:layout_marginRight="23dp"
+        android:background="#03A9F4"
+        android:textColor="#ffffff"
+        android:fontFamily="@font/voltaire"
         android:text="Add From Contacts" />
 
     <Button
@@ -79,7 +88,10 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="171dp"
         android:layout_marginRight="171dp"
+        android:fontFamily="@font/voltaire"
         android:layout_marginBottom="177dp"
+        android:background="#03A9F4"
+        android:textColor="#ffffff"
         android:text="Add Name" />
 
 

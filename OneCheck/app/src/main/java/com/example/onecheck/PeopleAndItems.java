@@ -3,6 +3,7 @@ package com.example.onecheck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
@@ -14,6 +15,9 @@ public class PeopleAndItems extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter; //used to display default row
     MyRecyclerViewAdapter2 adapter2; //customized from first adapter to include a button in each row
+    EditText addPrice;
+    EditText addPosition;
+
 
     //Button addPriceButton = (Button) findViewById(R.id.debugbutton);
     //EditText addPrice = (EditText) findViewById(R.id.test);   //text field to manually add a price to a person
@@ -36,6 +40,8 @@ public class PeopleAndItems extends AppCompatActivity {
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
         cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
 
+        addPrice = (EditText) findViewById(R.id.amount);
+        addPosition = (EditText) findViewById(R.id.position);
 
         //create another array that has both the items and price as one string for each entry
         for (int i = 0; i < items.size(); i++) {
@@ -91,8 +97,7 @@ public class PeopleAndItems extends AppCompatActivity {
 
     public void addItemToPerson(View view) {
         //add the string in resultCosts plus what was in the addPrice editText view
-        resultCosts.add(0, "$" + addTwoNumberString(resultCosts.get(0), "7"));
-        resultCosts.remove(1);
+        resultCosts.set(Integer.parseInt(addPosition.getText().toString()), addTwoNumberString(resultCosts.get(0), addPrice.getText().toString()));
 
     }
 

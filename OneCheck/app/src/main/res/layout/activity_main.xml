@@ -30,7 +30,7 @@
         android:background="#03A9F4"
         android:fontFamily="@font/voltaire"
         android:onClick="launchAddItemActivity"
-        android:text="GO TO ADD ITEM ACTIVITY (Change to: Add new check)"
+        android:text="Add new check"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

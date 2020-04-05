@@ -1,8 +1,10 @@
 package com.example.onecheck;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class CheckHistory extends AppCompatActivity {
 

@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void launchPeopleActivity(View view) {
-        Intent intent = new Intent(this, People.class);
+    public void launchHistoryActivity(View view) {
+        Intent intent = new Intent(this, History.class);
         startActivity(intent);
     }
 

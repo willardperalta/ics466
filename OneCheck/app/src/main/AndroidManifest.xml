@@ -12,6 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".History"
+            android:label="History"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.onecheck.MainActivity" />
+        </activity>
+        <activity
             android:name=".TaxAndTip"
             android:label="TaxAndTip"
             android:parentActivityName=".AddItems">

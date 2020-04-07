@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -21,7 +23,8 @@ public class TaxAndTip extends AppCompatActivity {
     ArrayList<String> cost = new ArrayList<>();
     Button confirmButton;
     EditText taxEdit;
-    EditText tipEdit;
+    RadioGroup radioGroup;
+    RadioButton radioButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,15 +33,19 @@ public class TaxAndTip extends AppCompatActivity {
 
         confirmButton = (Button) findViewById(R.id.confirm);
         taxEdit = (EditText) findViewById(R.id.taxEdit);
-        tipEdit = (EditText) findViewById(R.id.tipEdit);
+        radioGroup = findViewById(R.id.radioGroup);
 
         confirmButton.setOnClickListener(
                 new View.OnClickListener()
                 {
                     public void onClick(View view)
                     {
+                        int radioId = radioGroup.getCheckedRadioButtonId();
+
+                        radioButton = findViewById(radioId);
+
                         tax = taxEdit.getText().toString();
-                        tip = tipEdit.getText().toString();
+                        tip = radioButton.getText().toString();
 
                         // Tell User that tax and tip was added
                         Context context = getApplicationContext();
@@ -58,6 +65,7 @@ public class TaxAndTip extends AppCompatActivity {
         //TextView textView = (TextView) findViewById(R.id.totalValue);
         //textView.setText(Double.toString(cost.get(0)));
     }
+
 
     public void launchItemsActivity(View view) {
         Intent intent = new Intent(this, Items.class);

@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class AddItems extends AppCompatActivity {
 
+
     ArrayList<String> items = new ArrayList<>();
     ArrayList<String> cost = new ArrayList<>();
     Button addButton;

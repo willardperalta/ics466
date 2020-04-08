@@ -47,6 +47,20 @@
         android:layout_marginRight="-14dp" />
 
     <Button
+        android:id="@+id/back"
+        android:layout_width="98dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="191dp"
+        android:background="#03A9F4"
+        android:fontFamily="@font/voltaire"
+        android:text="Edit"
+        android:textColor="#ffffff"
+        android:onClick="goBackToPeopleAndItems"
+        android:textSize="24sp" />
+
+    <Button
         android:id="@+id/button4"
         android:layout_width="188dp"
         android:layout_height="64dp"

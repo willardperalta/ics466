@@ -21,6 +21,7 @@ public class Items extends AppCompatActivity {
     MyRecyclerViewAdapter adapter;
     ArrayList<String> items = new ArrayList<>();
     ArrayList<String> cost = new ArrayList<>();
+    ArrayList<String> combinedCostAndItems = new ArrayList<>();
     private static DecimalFormat df2 = new DecimalFormat("#.00");
 
     @Override
@@ -35,17 +36,15 @@ public class Items extends AppCompatActivity {
         tax = listIntent.getStringExtra("tax");
         tip = listIntent.getStringExtra("tip");
 
+        for(int i = 0; i < items.size(); i++) {
+            combinedCostAndItems.add(i, items.get(i) + ": $" + cost.get(i));
+        }
+
         // set up the RecyclerView for items
         RecyclerView recyclerViewItems = findViewById(R.id.itemsView);
         recyclerViewItems.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, items);
+        adapter = new MyRecyclerViewAdapter(this, combinedCostAndItems);
         recyclerViewItems.setAdapter(adapter);
-
-        // set up the RecyclerView for price of items
-        RecyclerView recyclerViewCost = findViewById(R.id.costView);
-        recyclerViewCost.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, cost);
-        recyclerViewCost.setAdapter(adapter);
 
         //calculate and displays total
         total = getTotal(tax, tip, cost);

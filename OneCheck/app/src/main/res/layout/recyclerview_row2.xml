@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"/>
 
+    <!--
     <EditText
         android:id="@+id/addPrice"
         android:layout_width="92dp"
@@ -27,6 +28,6 @@
         android:layout_weight="1"
         android:onClick="addItemToPerson"
         android:text="Add" />
-
+-->
 
 </LinearLayout>

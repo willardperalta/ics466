@@ -15,9 +15,10 @@ public class Results extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter;
 
-    HashMap<String, String> nameAndPrices = new HashMap<>();
+    HashMap<String, String> nameAndPrices = new HashMap<>(); //stores the name and corresponding price
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> resultCosts;
+    ArrayList<String> finalResults = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,6 @@ public class Results extends AppCompatActivity {
         Intent listIntent = getIntent();
         nameAndPrices = (HashMap<String, String>) listIntent.getSerializableExtra("nameAndPrices");
         names = (ArrayList<String>) listIntent.getSerializableExtra("key");
-        //resultCosts = (ArrayList<String>) listIntent.getSerializableExtra("resultCosts");
         resultCosts = new ArrayList<>(names.size()); //initialize the costs array to be as big as the names array
 
 
@@ -37,34 +37,26 @@ public class Results extends AppCompatActivity {
             System.out.println(i);
             System.out.println(names.get(i));
             resultCosts.add(nameAndPrices.get(names.get(i))); //using add() method
-            //nameAndPrices.get(names.get(i))
-            //resultCosts.set(i, "i");
+        }
+
+        //put together results in one array
+        for(int i = 0; i < names.size(); i++) {
+            finalResults.add(i, names.get(i) + ": $" + resultCosts.get(i));
         }
 
 
-        // set up the RecyclerView
+        // Display name: $price
         RecyclerView recyclerViewNames = findViewById(R.id.resultsnames);
         recyclerViewNames.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, names);
+        adapter = new MyRecyclerViewAdapter(this, finalResults);
         recyclerViewNames.setAdapter(adapter);
-
-
-        // set up the RecyclerView
-        RecyclerView recyclerViewCosts = findViewById(R.id.resultscosts);
-        recyclerViewCosts.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new MyRecyclerViewAdapter(this, resultCosts);
-        recyclerViewCosts.setAdapter(adapter);
-
-
-
 
     }
 
 
-
+    //onclick method to go back to the previous activity and edit the prices
     public void goBackToPeopleAndItems(View view) {
-        Intent intent = new Intent(this, PeopleAndItems.class);
-        startActivity(intent);
+        finish(); //this method just goes back to previous activity
     }
 
 }

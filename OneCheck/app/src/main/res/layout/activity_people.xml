@@ -36,21 +36,18 @@
         android:textSize="24sp"
         android:textColor="#ffffff" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/people"
         android:layout_width="175dp"
         android:layout_height="236dp"
-        android:fontFamily="@font/voltaire"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="233dp"
-        android:layout_marginEnd="202dp"
-        android:layout_marginRight="202dp" />
-
-
-
-
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginRight="102dp"
+        android:fontFamily="@font/voltaire" />
 
     <EditText
         android:id="@+id/nameInput"
@@ -58,26 +55,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="257dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="165dp"
         android:layout_marginBottom="182dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name" />
-
-    <Button
-        android:id="@+id/addContact"
-        android:layout_width="128dp"
-        android:layout_height="65dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="230dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginRight="23dp"
-        android:background="#03A9F4"
-        android:textColor="#ffffff"
-        android:fontFamily="@font/voltaire"
-        android:text="Add From Contacts" />
 
     <Button
         android:id="@+id/addName"
@@ -86,16 +69,13 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="171dp"
-        android:layout_marginRight="171dp"
-        android:fontFamily="@font/voltaire"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
         android:layout_marginBottom="177dp"
         android:background="#03A9F4"
-        android:textColor="#ffffff"
-        android:text="Add Name" />
-
-
-
+        android:fontFamily="@font/voltaire"
+        android:text="Add Name"
+        android:textColor="#ffffff" />
 
 
 </RelativeLayout>

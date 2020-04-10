@@ -54,6 +54,7 @@
         <activity
             android:name=".PeopleAndItems"
             android:label="PeopleAndItems"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".People">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -62,6 +63,7 @@
         <activity
             android:name=".People"
             android:label="People"
+            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".Items">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

@@ -10,64 +10,71 @@
         android:id="@+id/textView24"
         android:layout_width="161dp"
         android:layout_height="70dp"
-        android:layout_marginTop="56dp"
-        android:text="Items"
-        android:textSize="24sp"
+        android:layout_marginTop="36dp"
         android:fontFamily="@font/voltaire"
+        android:gravity="center"
+        android:text="Items"
+        android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.704"
+        app:layout_constraintHorizontal_bias="0.528"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/itemsView"
-        android:layout_width="59dp"
-        android:layout_height="229dp"
+        android:layout_width="141dp"
+        android:layout_height="214dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:background="@color/white"
         android:fontFamily="@font/voltaire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.426"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.295" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/costView"
-        android:layout_width="59dp"
-        android:layout_height="229dp"
+        android:layout_width="141dp"
+        android:layout_height="214dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+        android:background="@color/white"
         android:fontFamily="@font/voltaire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/itemsView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.295" />
 
     <TextView
         android:id="@+id/total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="89dp"
+        android:layout_height="53dp"
+        android:background="@color/activityBackground"
+        android:fontFamily="@font/voltaire"
+        android:gravity="center"
         android:text="Total:"
         android:textSize="24sp"
-        android:fontFamily="@font/voltaire"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.246"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.576" />
 
     <Button
         android:id="@+id/button10"
         android:layout_width="146dp"
         android:layout_height="66dp"
-        android:background="#03A9F4"
+        android:background="@color/secondary"
         android:fontFamily="@font/voltaire"
         android:onClick="launchPeopleActivity"
         android:text="Split Check"
@@ -82,14 +89,17 @@
 
     <TextView
         android:id="@+id/totalValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="85dp"
+        android:layout_height="51dp"
+        android:background="@color/activityBackground"
+        android:fontFamily="@font/voltaire"
+        android:gravity="center"
         android:text="Text"
         android:textSize="24sp"
-        android:fontFamily="@font/voltaire"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/total"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.716" />
+        app:layout_constraintVertical_bias="0.576" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

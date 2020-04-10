@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 public class PeopleAndItems extends AppCompatActivity {
 
     MyRecyclerViewAdapter adapter; //used to display default row
+
     MyRecyclerViewAdapter2 adapter2; //customized from first adapter to include a button in each row
     EditText addPrice;
     EditText addPosition;
@@ -64,6 +65,7 @@ public class PeopleAndItems extends AppCompatActivity {
         }
 
 
+
         // set up the RecyclerView for names
         RecyclerView recyclerView = findViewById(R.id.people);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -77,29 +79,6 @@ public class PeopleAndItems extends AppCompatActivity {
         adapter = new MyRecyclerViewAdapter(this, itemsAndCost);
         recyclerViewItems.setAdapter(adapter);
 
-        //recyclerView.findViewHolderForAdapterPosition(0);
-        //resultCosts.add(0, "0"); //initialize first entry with "0" for testing purposes
-
-
-/*
-        addPriceButton.setOnClickListener(
-                new View.OnClickListener()
-                {
-                    public void onClick(View view)
-                    {
-                        String result = addTwoNumberString(resultCosts.get(0), "5");//(addPrice.getText().toString()));
-                        resultCosts.add(0, result);
-
-                        // Tell User that an item was added
-                        Context context = getApplicationContext();
-                        CharSequence text = "Item Price Added";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
-                        toast.show();
-
-                    }
-                });*/
 
     }
 
@@ -113,10 +92,18 @@ public class PeopleAndItems extends AppCompatActivity {
 
     public void addItemToPerson(View view) {
         //add the string in resultCosts plus what was in the addPrice editText view
-        String position = addPosition.getText().toString();
-        String price = addPrice.getText().toString();
+        String position = addPosition.getText().toString(); //uncomment this
+        String price = addPrice.getText().toString();  //uncomment this
 
-        nameAndPrices.put(position, price);
+        //String title = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.nameOfPerson)).getText().toString();
+
+        System.out.println("I was clicked.");
+
+        //using the recyclerview row
+        //String position = addPosition.getText().toString();
+        //String price = addPrice.getText().toString();
+
+        nameAndPrices.put(position, price);  //uncomment this
 
         /*
         if(position == "0") {

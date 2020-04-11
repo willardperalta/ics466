@@ -24,15 +24,15 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/resultsnames"
-        android:layout_width="190dp"
-        android:layout_height="279dp"
+        android:layout_width="364dp"
+        android:layout_height="305dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:layout_marginTop="140dp"
-        android:layout_marginEnd="107dp"
-        android:layout_marginRight="107dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
         android:background="@color/white"
         android:fontFamily="@font/voltaire" />
 
@@ -43,7 +43,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="192dp"
-        android:background="@color/main"
+        android:background="@drawable/rounded_main_color_button"
         android:fontFamily="@font/voltaire"
         android:onClick="goBackToPeopleAndItems"
         android:text="Edit"

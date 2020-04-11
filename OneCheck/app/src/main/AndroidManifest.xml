@@ -54,8 +54,8 @@
         <activity
             android:name=".PeopleAndItems"
             android:label="PeopleAndItems"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".People">
+            android:parentActivityName=".People"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.People" />
@@ -63,8 +63,8 @@
         <activity
             android:name=".People"
             android:label="People"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".Items">
+            android:parentActivityName=".Items"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.Items" />

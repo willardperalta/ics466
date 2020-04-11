@@ -77,7 +77,7 @@
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/main"
+        android:background="@drawable/rounded_main_color_button"
         android:fontFamily="@font/voltaire"
         android:text="CONFIRM"
         android:textColor="#ffffff"

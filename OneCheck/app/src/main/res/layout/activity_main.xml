@@ -28,6 +28,7 @@
         android:layout_marginBottom="120dp"
         android:background="@drawable/rounded_secondary_color_button"
         android:fontFamily="@font/voltaire"
+        android:onClick="launchHistoryActivity"
         android:text="View History"
         android:textColor="#ffffff"
         android:textSize="24sp"

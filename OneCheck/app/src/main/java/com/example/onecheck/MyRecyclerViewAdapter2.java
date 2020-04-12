@@ -52,7 +52,7 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
 
         ViewHolder(View itemView) {
             super(itemView);
-            myTextView = itemView.findViewById(R.id.tvAnimalName);
+            myTextView = itemView.findViewById(R.id.personEntry);
 
             itemView.setOnClickListener(this);
         }
@@ -61,9 +61,6 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         public void onClick(View view) {
             if (mClickListener != null) {
                 mClickListener.onItemClick(view, getAdapterPosition());
-
-                // Tell User that an item was added
-                System.out.println("VIEW WAS CLICKED");
             }
         }
     }

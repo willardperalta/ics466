@@ -12,49 +12,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/voltaire"
+        android:gravity="center"
         android:text="Tax"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.345"
+        app:layout_constraintHorizontal_bias="0.371"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
-
+        app:layout_constraintVertical_bias="0.181" />
 
     <TextView
         android:id="@+id/tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/voltaire"
+        android:gravity="center"
         android:text="Tip"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.312"
+        app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
+        app:layout_constraintVertical_bias="0.288" />
 
     <EditText
         android:id="@+id/taxEdit"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="45dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
         android:layout_weight="0.3"
+        android:background="@color/white"
         android:ems="4"
         android:inputType="numberDecimal"
         android:maxLength="6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tax"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintVertical_bias="0.179" />
 
     <Button
         android:id="@+id/total"
         android:layout_width="160dp"
         android:layout_height="64dp"
         android:layout_marginBottom="76dp"
-        android:background="#03A9F4"
+        android:background="@color/secondary"
         android:fontFamily="@font/voltaire"
         android:onClick="launchItemsActivity"
         android:text="TOTAL"
@@ -71,41 +77,42 @@
         android:id="@+id/confirm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="CONFIRM"
-        android:background="#03A9F4"
-        android:textColor="#ffffff"
+        android:background="@drawable/rounded_main_color_button"
         android:fontFamily="@font/voltaire"
+        android:text="CONFIRM"
+        android:textColor="#ffffff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.423" />
+        app:layout_constraintVertical_bias="0.407" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="%"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/taxEdit"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.158" />
+        app:layout_constraintVertical_bias="0.17" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="54dp"
-        android:layout_height="94dp"
+        android:layout_width="56dp"
+        android:layout_height="97dp"
         android:layout_centerInParent="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271">
+        app:layout_constraintVertical_bias="0.285">
 
         <RadioButton
             android:id="@+id/radio_one"
@@ -113,6 +120,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="15"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.274"
@@ -125,6 +133,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="18"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/radio_three"
             app:layout_constraintHorizontal_bias="0.525"
@@ -137,6 +146,7 @@
             android:layout_width="wrap_content"
             android:layout_height="22dp"
             android:text="20"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.81"

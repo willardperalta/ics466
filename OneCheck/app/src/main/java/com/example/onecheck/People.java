@@ -67,6 +67,7 @@ public class People extends AppCompatActivity{
         intent.putExtra("key", names);
         intent.putExtra("item", items);
         intent.putExtra("cost", cost);
+        intent.putExtra("namesListSize", names.size());
         startActivity(intent);
     }
 

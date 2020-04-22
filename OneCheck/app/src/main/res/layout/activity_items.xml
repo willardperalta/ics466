@@ -54,6 +54,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.601" />
 
+
+    <TextView
+        android:id="@+id/totalValue"
+        android:layout_width="85dp"
+        android:layout_height="51dp"
+        android:background="@color/activityBackground"
+        android:fontFamily="@font/voltaire"
+        android:gravity="center"
+        android:text="Text"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/total"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+
+
+
     <Button
         android:id="@+id/button10"
         android:layout_width="146dp"
@@ -70,20 +88,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.935" />
-
-    <TextView
-        android:id="@+id/totalValue"
-        android:layout_width="85dp"
-        android:layout_height="51dp"
-        android:background="@color/activityBackground"
-        android:fontFamily="@font/voltaire"
-        android:gravity="center"
-        android:text="Text"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/total"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

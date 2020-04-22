@@ -44,7 +44,7 @@
         android:layout_marginTop="156dp"
         android:background="@drawable/rounded_main_color_button"
         android:fontFamily="@font/voltaire"
-        android:onClick="launchAddItemActivity"
+        android:onClick="launchCombinedActivity"
         android:text="Add new check"
         android:textColor="#ffffff"
         android:textSize="24sp"

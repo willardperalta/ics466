@@ -20,6 +20,7 @@ public class People extends AppCompatActivity{
     ArrayList<String> cost = new ArrayList<>();
     Button mButton;
     EditText mEdit;
+    String tax, tip;
 
 
     @Override
@@ -31,9 +32,13 @@ public class People extends AppCompatActivity{
         mButton = (Button)findViewById(R.id.addName);
         mEdit   = (EditText)findViewById(R.id.nameInput);
 
+        //Get stuff from previous Combined activity
         Intent listIntent = getIntent();
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
         cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
+        tax = listIntent.getStringExtra("tax");
+        tip = listIntent.getStringExtra("tip");
+
 
         mButton.setOnClickListener(
                 new View.OnClickListener()

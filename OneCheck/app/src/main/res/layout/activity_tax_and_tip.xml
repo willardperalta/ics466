@@ -55,23 +55,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.179" />
 
-    <Button
-        android:id="@+id/total"
-        android:layout_width="160dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="76dp"
-        android:background="@color/secondary"
-        android:fontFamily="@font/voltaire"
-        android:onClick="launchItemsActivity"
-        android:text="TOTAL"
-        android:textColor="#ffffff"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+
 
     <Button
         android:id="@+id/confirm"
@@ -155,5 +139,24 @@
             app:layout_constraintVertical_bias="0.294" />
 
     </RadioGroup>
+
+
+    <Button
+        android:id="@+id/total"
+        android:layout_width="160dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="76dp"
+        android:background="@color/secondary"
+        android:fontFamily="@font/voltaire"
+        android:onClick="launchItemsActivity"
+        android:text="TOTAL"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

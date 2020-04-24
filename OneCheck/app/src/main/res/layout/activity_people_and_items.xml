@@ -22,16 +22,19 @@
 
     <Button
         android:id="@+id/results"
-        android:layout_width="209dp"
-        android:layout_height="77dp"
+        android:layout_width="111dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="21dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginBottom="14dp"
         android:background="@color/secondary"
         android:onClick="launchResultsActivity"
-        android:text="Results"
+        android:text="Next: Final Results"
         android:textColor="#ffffff"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -39,15 +42,15 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="124dp"
-        android:layout_height="63dp"
+        android:layout_width="199dp"
+        android:layout_height="52dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="3dp"
         android:gravity="center"
-        android:text="People"
+        android:text="People in your group"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,16 +58,14 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="124dp"
-        android:layout_height="63dp"
+        android:layout_width="305dp"
+        android:layout_height="62dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="232dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="231dp"
+        android:layout_marginTop="233dp"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="Item List"
+        android:text="List of Items and their Prices"
         android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -114,7 +115,8 @@
         android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:textSize="13dp"
+        android:hint="ex: John"/>
 
     <EditText
         android:id="@+id/amount"
@@ -130,7 +132,37 @@
         android:background="@color/white"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Amount" />
+        android:hint="ex: 12.99"
+        android:textSize="13dp"
+        />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginBottom="185dp"
+        android:text="Person: "
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="100dp"
+        android:layout_height="55dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
+        android:layout_marginBottom="114dp"
+        android:text="Amount they will owe: "
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 
 
 </RelativeLayout>

@@ -3,6 +3,7 @@ package com.example.onecheck;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +20,7 @@ public class Results extends AppCompatActivity {
     ArrayList<String> names = new ArrayList<>();
     ArrayList<String> resultCosts;
     ArrayList<String> finalResults = new ArrayList<>();
+    double evenlyDistributedTaxAndTip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +31,12 @@ public class Results extends AppCompatActivity {
         Intent listIntent = getIntent();
         nameAndPrices = (HashMap<String, String>) listIntent.getSerializableExtra("nameAndPrices");
         names = (ArrayList<String>) listIntent.getSerializableExtra("key");
+        evenlyDistributedTaxAndTip = listIntent.getDoubleExtra("evenlyDistributedTaxAndTip", evenlyDistributedTaxAndTip);
         resultCosts = new ArrayList<>(names.size()); //initialize the costs array to be as big as the names array
 
+        //set text to show what evenlyDistributedTaxAndTip is
+        TextView textView = (TextView) findViewById(R.id.distributedtaxandtip);
+        textView.setText("$" + String.format("%.2f", evenlyDistributedTaxAndTip));
 
         //populate resultCosts array with prices from the hashmap
         for(int i = 0; i < names.size(); i++) {

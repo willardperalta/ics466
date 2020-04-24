@@ -97,6 +97,7 @@ public class PeopleAndItems extends AppCompatActivity {
         intent.putExtra("key", names); //send the names list to the results activity
         //intent.putExtra("resultCosts", resultCosts); //send the resultCosts list to the results activity
         intent.putExtra("nameAndPrices", nameAndPrices); //send the hashmap of names and prices
+        intent.putExtra("evenlyDistributedTaxAndTip", evenlyDistributedTaxAndTip);
         startActivity(intent);
     }
 
@@ -117,7 +118,7 @@ public class PeopleAndItems extends AppCompatActivity {
 
         // Tell User that a price was set
         Context context = getApplicationContext();
-        CharSequence text = "Price set";
+        CharSequence text = "Amount set";
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, text, duration);
         toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);

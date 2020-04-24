@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="112dp"
-        android:layout_height="81dp"
+        android:layout_width="231dp"
+        android:layout_height="82dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="132dp"
         android:layout_marginLeft="132dp"
@@ -62,4 +62,32 @@
         android:text="Done"
         android:textColor="#ffffff"
         android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/othertextview"
+        android:layout_width="133dp"
+        android:layout_height="45dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="126dp"
+        android:textSize="18dp"
+        android:text="Tax and tip added to each person:"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:id="@+id/distributedtaxandtip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="249dp"
+        android:layout_marginRight="249dp"
+        android:layout_marginBottom="123dp"
+        android:text="$0.00"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
 </RelativeLayout>

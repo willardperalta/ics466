@@ -36,12 +36,14 @@ public class Results extends AppCompatActivity {
         for(int i = 0; i < names.size(); i++) {
             System.out.println(i);
             System.out.println(names.get(i));
-            resultCosts.add(nameAndPrices.get(names.get(i))); //using add() method
+            resultCosts.add(nameAndPrices.get(names.get(i))); //using add() method get the string for the price
         }
+
+
 
         //put together results in one array
         for(int i = 0; i < names.size(); i++) {
-            finalResults.add(i, names.get(i) + ": $" + resultCosts.get(i));
+            finalResults.add(i, names.get(i) + ": $" + String.format("%.2f", Double.parseDouble(resultCosts.get(i))));
         }
 
 

@@ -21,6 +21,7 @@ public class People extends AppCompatActivity{
     Button mButton;
     EditText mEdit;
     String tax, tip;
+    double taxAndTipAmounts;
 
 
     @Override
@@ -38,6 +39,7 @@ public class People extends AppCompatActivity{
         cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
         tax = listIntent.getStringExtra("tax");
         tip = listIntent.getStringExtra("tip");
+        taxAndTipAmounts = listIntent.getDoubleExtra("taxandtipamounts", taxAndTipAmounts);
 
 
         mButton.setOnClickListener(
@@ -72,6 +74,9 @@ public class People extends AppCompatActivity{
         intent.putExtra("key", names);
         intent.putExtra("item", items);
         intent.putExtra("cost", cost);
+        intent.putExtra("tax", tax);
+        intent.putExtra("tip", tip);
+        intent.putExtra("taxandtipamounts", taxAndTipAmounts);
         intent.putExtra("namesListSize", names.size());
         startActivity(intent);
     }

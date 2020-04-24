@@ -34,7 +34,8 @@
         <activity
             android:name=".CombinedActivity"
             android:label="CombinedActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.MainActivity" />

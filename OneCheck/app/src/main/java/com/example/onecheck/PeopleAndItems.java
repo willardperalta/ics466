@@ -1,9 +1,12 @@
 package com.example.onecheck;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,6 +22,8 @@ public class PeopleAndItems extends AppCompatActivity {
     MyRecyclerViewAdapter2 adapter2; //customized from first adapter to include a button in each row
     EditText addPrice;
     EditText addPosition;
+    String tax, tip;
+    double evenlyDistributedTaxAndTip;
 
 
     //Button addPriceButton = (Button) findViewById(R.id.debugbutton);
@@ -31,6 +36,7 @@ public class PeopleAndItems extends AppCompatActivity {
     ArrayList<String> itemsAndCost = new ArrayList<>(); //Item: cost
     //ArrayList<String> resultCosts = new ArrayList<>(); //arraylist to store what each perosn owes
     int namesListSize = 0;
+    double taxAndTipAmounts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,15 +50,19 @@ public class PeopleAndItems extends AppCompatActivity {
         items = (ArrayList<String>) listIntent.getSerializableExtra("item");
         cost = (ArrayList<String>) listIntent.getSerializableExtra("cost");
         namesListSize = listIntent.getIntExtra("namesListSize", namesListSize);
+        tax = listIntent.getStringExtra("tax");
+        tip = listIntent.getStringExtra("tip");
+        taxAndTipAmounts = listIntent.getDoubleExtra("taxandtipamounts", taxAndTipAmounts);
+        evenlyDistributedTaxAndTip = taxAndTipAmounts / namesListSize; //evenly distribute tax and tip amongst the whole group
 
         System.out.println("namesListSize: " + namesListSize);
 
         // create hashmap with size of list of names
         nameAndPrices = new HashMap<>(namesListSize);
 
-        //populate the hashmap with all names from names arraylist
+        //populate the hashmap with all names from names arraylist and initalize cost
         for(int i = 0; i < namesListSize; i++) {
-            nameAndPrices.put(names.get(i), "0");
+            nameAndPrices.put(names.get(i), String.valueOf(evenlyDistributedTaxAndTip));
             System.out.println(names.get(i) + ": " + nameAndPrices.get(names.get(i)));
         }
 
@@ -97,13 +107,21 @@ public class PeopleAndItems extends AppCompatActivity {
 
         //String title = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.nameOfPerson)).getText().toString();
 
-        System.out.println("I was clicked.");
+
 
         //using the recyclerview row
         //String position = addPosition.getText().toString();
         //String price = addPrice.getText().toString();
 
-        nameAndPrices.put(position, price);  //uncomment this
+        nameAndPrices.put(position, String.valueOf(Double.parseDouble(price) + evenlyDistributedTaxAndTip));  //uncomment this
+
+        // Tell User that a price was set
+        Context context = getApplicationContext();
+        CharSequence text = "Price set";
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
+        toast.show();
 
         /*
         if(position == "0") {

@@ -1,17 +1,23 @@
 package com.example.onecheck;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class CombinedActivity extends AppCompatActivity {
 
@@ -30,22 +36,21 @@ public class CombinedActivity extends AppCompatActivity {
     RadioButton radioButton;
 
     //from Items
+    int insertIndex;
     double total;
     String totalText;
     MyRecyclerViewAdapter adapter;
     ArrayList<String> combinedCostAndItems = new ArrayList<>();
     private static DecimalFormat df2 = new DecimalFormat("#.00");
 
+    double totalWithoutTaxAndTip;
+    double taxAndTipAmounts;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combined);
-
-
-        /*
-
 
 
 
@@ -57,6 +62,8 @@ public class CombinedActivity extends AppCompatActivity {
         confirmButton = (Button) findViewById(R.id.confirm);
         taxEdit = (EditText) findViewById(R.id.taxEdit);
         radioGroup = findViewById(R.id.radioGroup);
+        tax = "0";
+        tip = "0";
 
         //add price button onclick listener
         addButton.setOnClickListener(
@@ -67,8 +74,18 @@ public class CombinedActivity extends AppCompatActivity {
                         String itemInputString = itemEdit.getText().toString();
                         String costInput = costEdit.getText().toString();
 
-                        items.add(itemInputString);
-                        cost.add(costInput);
+                        insertIndex = combinedCostAndItems.size();
+                        items.add(itemInputString); //old but keep for now
+                        cost.add(costInput); //old but keep for now
+                        combinedCostAndItems.add(itemInputString + ": $" + costInput);
+                        //update recyclerview
+                        adapter.notifyItemInserted(insertIndex);
+
+                        //calculate and displays total
+                        total = getTotal(tax, tip, cost);
+                        totalText = df2.format(total);
+                        TextView textView = (TextView) findViewById(R.id.totalValue);
+                        textView.setText(totalText);
 
                         // Tell User that an item was added
                         Context context = getApplicationContext();
@@ -88,11 +105,15 @@ public class CombinedActivity extends AppCompatActivity {
                     public void onClick(View view)
                     {
                         int radioId = radioGroup.getCheckedRadioButtonId();
-
                         radioButton = findViewById(radioId);
-
                         tax = taxEdit.getText().toString();
                         tip = radioButton.getText().toString();
+
+                        //calculate and displays total
+                        total = getTotal(tax, tip, cost);
+                        totalText = df2.format(total);
+                        TextView textView = (TextView) findViewById(R.id.totalValue);
+                        textView.setText(totalText);
 
                         // Tell User that tax and tip was added
                         Context context = getApplicationContext();
@@ -112,12 +133,9 @@ public class CombinedActivity extends AppCompatActivity {
         adapter = new MyRecyclerViewAdapter(this, combinedCostAndItems);
         recyclerViewItems.setAdapter(adapter);
 
-        //calculate and displays total
-        total = getTotal(tax, tip, cost);
-        totalText = df2.format(total);
-        TextView textView = (TextView) findViewById(R.id.totalValue);
-        textView.setText(totalText);
-*/
+
+
+
     }
 
     public double getTotal(String tax, String tip, ArrayList<String> costItems)
@@ -128,15 +146,18 @@ public class CombinedActivity extends AppCompatActivity {
 
         for (int i = 0; i < costItems.size(); i++) {
             thisTotal += Double.parseDouble(costItems.get(i));
+            totalWithoutTaxAndTip = thisTotal;
         }
 
         taxNum = taxNum / 100;
         tipNum = tipNum / 100;
         thisTotal *= (1 + taxNum);
         thisTotal *= (1 + tipNum);
+        taxAndTipAmounts = thisTotal - totalWithoutTaxAndTip;
 
         return thisTotal;
     }
+
 
     public void launchPeopleActivity(View view) {
         Intent intent = new Intent(this, People.class);
@@ -144,6 +165,7 @@ public class CombinedActivity extends AppCompatActivity {
         intent.putExtra("cost", cost);
         intent.putExtra("tax", tax);
         intent.putExtra("tip", tip);
+        intent.putExtra("taxandtipamounts", taxAndTipAmounts);
         startActivity(intent);
     }
 }

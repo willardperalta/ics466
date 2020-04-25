@@ -16,6 +16,12 @@ public abstract class CheckRoomDatabase extends RoomDatabase {
             synchronized (CheckRoomDatabase.class) {
                 if (INSTANCE == null) {
                     // Create database here
+                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
+                            CheckRoomDatabase.class, "check_database")
+                            // Wipes and rebuilds instead of migrating
+                            // if no Migration object.
+                            .fallbacktoDestructiveMigration()
+                            .build();
                 }
             }
         }

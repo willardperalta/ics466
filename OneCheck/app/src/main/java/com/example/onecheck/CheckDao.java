@@ -19,12 +19,12 @@ public interface CheckDao {
     void deleteAll();
 
     @Delete
-    void deleteWord(Check name);
+    void deleteCheck(Check name);
 
     @Query("SELECT * from check_table LIMIT 1")
-    Check[] getAnyWord();
+    Check[] getAnyCheck();
 
     @Query("SELECT * from check_table ORDER BY name ASC")
-    LiveData<List<Check>> getAllWords();
+    LiveData<List<Check>> getAllChecks();
 
 }

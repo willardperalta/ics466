@@ -56,15 +56,15 @@
         android:id="@+id/textView4"
         android:layout_width="163dp"
         android:layout_height="46dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:background="#31538C"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="OneCheck"
+        android:text="I.O.U"
         android:textColor="#ffffff"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -107,7 +107,7 @@ public class CombinedActivity extends AppCompatActivity {
                         int radioId = radioGroup.getCheckedRadioButtonId();
                         radioButton = findViewById(radioId);
                         tax = taxEdit.getText().toString();
-                        tip = radioButton.getText().toString();
+                        tip = radioButton.getText().toString().substring(0,2); //don't include the hardcoded percent sign
 
                         //calculate and displays total
                         total = getTotal(tax, tip, cost);

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class CheckHistory extends AppCompatActivity {
+    private CheckViewModel mcheckViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

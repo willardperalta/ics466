@@ -11,9 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddItems"></activity>
-        <activity android:name=".TaxAndTip"></activity>
-        <activity android:name=".Items"></activity>
+        <activity android:name=".ReceiptActivity"></activity>
+        <activity android:name=".AddItems" />
+        <activity android:name=".TaxAndTip" />
+        <activity android:name=".Items" />
         <activity
             android:name=".CheckHistory"
             android:label="CheckHistory"
@@ -22,7 +23,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.MainActivity" />
         </activity>
-
         <activity
             android:name=".ListViewActivity"
             android:label="ListViewActivity"

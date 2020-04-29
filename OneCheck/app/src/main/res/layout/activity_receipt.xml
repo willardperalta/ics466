@@ -26,5 +26,53 @@
         app:layout_constraintTop_toBottomOf="@+id/addItem"
         app:layout_constraintVertical_bias="0.962" />
 
+    <ImageView
+        android:id="@+id/displayPicture"
+        android:layout_width="279dp"
+        android:layout_height="389dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/placeholder" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/voltaire"
+        android:text="Receipt Reference Picture"
+        android:textColor="#ffffff"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/takePictureButton"
+        android:layout_width="71dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_main_color_button"
+        android:text="Take Picture"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/displayPicture" />
+
+    <Button
+        android:id="@+id/albumButton"
+        android:layout_width="129dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_main_color_button"
+        android:text="Choose from camera roll"
+        android:textColor="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/takePictureButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

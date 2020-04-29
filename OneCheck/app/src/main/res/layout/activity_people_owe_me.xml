@@ -8,15 +8,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="231dp"
-        android:layout_height="82dp"
+        android:layout_width="351dp"
+        android:layout_height="64dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="132dp"
-        android:layout_marginLeft="132dp"
+
         android:layout_marginTop="40dp"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="Final Results"
+        android:text="List of what the group owes me"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,20 +36,6 @@
         android:fontFamily="@font/voltaire" />
 
     <Button
-        android:id="@+id/back"
-        android:layout_width="98dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="192dp"
-        android:background="@drawable/rounded_main_color_button"
-        android:fontFamily="@font/voltaire"
-        android:onClick="goBackToPeopleAndItems"
-        android:text="Edit"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
-
-    <Button
         android:id="@+id/doneButton"
         android:layout_width="188dp"
         android:layout_height="64dp"
@@ -62,6 +47,23 @@
         android:text="Done"
         android:textColor="#ffffff"
         android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/invite"
+        android:layout_width="99dp"
+        android:layout_height="66dp"
+        android:layout_below="@+id/resultsnames"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
+        android:background="@drawable/rounded_main_color_button"
+        android:fontFamily="@font/voltaire"
+        android:padding="10dp"
+        android:text="Invite People to this receipt"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
 
     <TextView
         android:id="@+id/othertextview"

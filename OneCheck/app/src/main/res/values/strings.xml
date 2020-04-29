@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OneCheck</string>
+    <string name="app_name">I.O.U</string>
     <string name="title_activity_tax_and_tip">TaxAndTip</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">

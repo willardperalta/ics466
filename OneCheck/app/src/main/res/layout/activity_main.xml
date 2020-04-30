@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!--
     <Button
         android:id="@+id/signin"
         android:layout_width="74dp"
@@ -20,6 +21,8 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    -->
+
 
     <Button
         android:id="@+id/button"
@@ -29,7 +32,7 @@
         android:background="@drawable/rounded_secondary_color_button"
         android:fontFamily="@font/voltaire"
         android:onClick="launchHistoryActivity"
-        android:text="View History"
+        android:text="View Receipts"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +48,7 @@
         android:background="@drawable/rounded_main_color_button"
         android:fontFamily="@font/voltaire"
         android:onClick="launchCombinedActivity"
-        android:text="Add new check"
+        android:text="Store a Receipt"
         android:textColor="#ffffff"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -56,15 +59,15 @@
         android:id="@+id/textView4"
         android:layout_width="163dp"
         android:layout_height="46dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:background="#31538C"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="OneCheck"
+        android:text="I.O.U"
         android:textColor="#ffffff"
         android:textSize="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,6 +79,23 @@
         android:layout_marginEnd="344dp"
         android:layout_marginRight="344dp"
         android:src="@drawable/dollarsign"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/rounded_secondary_color_button"
+        android:fontFamily="@font/voltaire"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Welcome, John!"
+        android:textColor="#ffffff"
+        android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

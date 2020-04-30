@@ -3,6 +3,7 @@
     package="com.example.onecheck">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -11,9 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddItems"></activity>
-        <activity android:name=".TaxAndTip"></activity>
-        <activity android:name=".Items"></activity>
+        <activity android:name=".IOwePeopleActivity"></activity>
+        <activity android:name=".PeopleOweMeActivity" />
+        <activity android:name=".ReceiptActivity" />
+        <activity android:name=".AddItems" />
+        <activity android:name=".TaxAndTip" />
+        <activity android:name=".Items" />
         <activity
             android:name=".CheckHistory"
             android:label="CheckHistory"
@@ -22,7 +26,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.onecheck.MainActivity" />
         </activity>
-
         <activity
             android:name=".ListViewActivity"
             android:label="ListViewActivity"

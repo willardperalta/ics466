@@ -1,6 +1,6 @@
 package com.example.onecheck;
 
-import android.os.Bundle;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -35,5 +35,20 @@ public class CheckHistory extends AppCompatActivity {
         });
 
 
+    }
+
+    public void launchMainActivity(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchPeopleOweMeActivity(View view) {
+        Intent intent = new Intent(this, PeopleOweMeActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchIOwePeopleActivity(View view) {
+        Intent intent = new Intent(this, IOwePeopleActivity.class);
+        startActivity(intent);
     }
 }

@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void launchCombinedActivity(View view) {
-        Intent intent = new Intent(this, CombinedActivity.class);
+        Intent intent = new Intent(this, ReceiptActivity.class);
         startActivity(intent);
     }
 }

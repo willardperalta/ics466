@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="351dp"
-        android:layout_height="64dp"
+        android:layout_width="349dp"
+        android:layout_height="78dp"
         android:layout_centerHorizontal="true"
 
         android:layout_marginTop="40dp"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="List of what the group owes me"
+        android:text="List of what the group owes me 1/8/2020"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"

@@ -44,6 +44,11 @@ public class CheckHistory extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void launchPeopleOweMe2Activity(View view) {
+        Intent intent = new Intent(this, PeopleOweMe2Activity.class);
+        startActivity(intent);
+    }
+
     public void launchIOwePeopleActivity(View view) {
         Intent intent = new Intent(this, IOwePeopleActivity.class);
         startActivity(intent);

@@ -9,16 +9,16 @@
 
     <TextView
         android:id="@+id/payed"
-        android:layout_width="386dp"
-        android:layout_height="65dp"
+        android:layout_width="398dp"
+        android:layout_height="64dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/rounded_secondary_color_button"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="Receipts where the group owes me: "
+        android:text="View receipts where people owe me: "
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/debt"
-        android:layout_width="358dp"
-        android:layout_height="51dp"
+        android:layout_width="374dp"
+        android:layout_height="56dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
@@ -35,7 +35,7 @@
         android:background="@drawable/rounded_secondary_color_button"
         android:fontFamily="@font/voltaire"
         android:gravity="center"
-        android:text="Receipts where I owe the group:"
+        android:text="View receipts where I owe people:"
         android:textColor="@color/white"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,10 +48,22 @@
         android:layout_marginTop="28dp"
         android:onClick="launchPeopleOweMeActivity"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.158"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/payed"
-        app:srcCompat="@drawable/receipt" />
+        app:srcCompat="@drawable/receipt_cartoon2" />
+
+    <ImageView
+        android:id="@+id/imageViewEmpty"
+        android:layout_width="101dp"
+        android:layout_height="107dp"
+        android:layout_marginTop="28dp"
+        android:onClick="launchPeopleOweMe2Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/payed"
+        app:srcCompat="@drawable/receipt_cartoon2" />
 
     <ImageView
         android:id="@+id/imageView3"

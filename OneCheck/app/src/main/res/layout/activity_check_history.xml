@@ -63,7 +63,7 @@
         android:onClick="launchIOwePeopleActivity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/debt"
-        app:srcCompat="@drawable/receipt" />
+        app:srcCompat="@drawable/receipt_cartoon2" />
 
 
     <Button

@@ -111,8 +111,8 @@ public class IOwePeopleActivity extends AppCompatActivity {
 
     public void addItemToPerson(View view) {
         //add the string in resultCosts plus what was in the addPrice editText view
-        String position = addPosition.getText().toString(); //uncomment this
-        String price = addPrice.getText().toString();  //uncomment this
+        String position = addPosition.getText().toString();
+        String price = addPrice.getText().toString();
 
         nameAndPrices.put(position, String.valueOf(Double.parseDouble(price) + evenlyDistributedTaxAndTip));  //uncomment this
 
@@ -133,7 +133,7 @@ public class IOwePeopleActivity extends AppCompatActivity {
     }
 
     public void launchResultsActivity(View view) {
-        Intent intent = new Intent(this, Results.class);
+        Intent intent = new Intent(this, IOwePeopleResultsActivity.class);
         intent.putExtra("key", names); //send the names list to the results activity
         intent.putExtra("nameAndPrices", nameAndPrices); //send the hashmap of names and prices
         intent.putExtra("evenlyDistributedTaxAndTip", evenlyDistributedTaxAndTip);

@@ -3,8 +3,11 @@ package com.example.onecheck;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -37,6 +40,7 @@ public class PeopleAndItems extends AppCompatActivity {
     //ArrayList<String> resultCosts = new ArrayList<>(); //arraylist to store what each perosn owes
     int namesListSize = 0;
     double taxAndTipAmounts;
+    Button setButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +58,7 @@ public class PeopleAndItems extends AppCompatActivity {
         tip = listIntent.getStringExtra("tip");
         taxAndTipAmounts = listIntent.getDoubleExtra("taxandtipamounts", taxAndTipAmounts);
         evenlyDistributedTaxAndTip = taxAndTipAmounts / namesListSize; //evenly distribute tax and tip amongst the whole group
-
-        System.out.println("namesListSize: " + namesListSize);
+        setButton = findViewById(R.id.setPriceToPerson);
 
         // create hashmap with size of list of names
         nameAndPrices = new HashMap<>(namesListSize);
@@ -89,7 +92,17 @@ public class PeopleAndItems extends AppCompatActivity {
         adapter = new MyRecyclerViewAdapter(this, itemsAndCost);
         recyclerViewItems.setAdapter(adapter);
 
+        /*
+        setButton.setOnClickListener(
+                new View.OnClickListener() {
+                    public void onClick(View view) {
 
+                        //cleanup
+                        //addPrice.setText("");
+                        //addPosition.setText("");
+                        closeKeyBoard();
+                    }
+                });*/
     }
 
     public void launchResultsActivity(View view) {
@@ -103,36 +116,40 @@ public class PeopleAndItems extends AppCompatActivity {
 
     public void addItemToPerson(View view) {
         //add the string in resultCosts plus what was in the addPrice editText view
-        String position = addPosition.getText().toString(); //uncomment this
-        String price = addPrice.getText().toString();  //uncomment this
 
-        //String title = ((TextView) recyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.nameOfPerson)).getText().toString();
-
-
-
-        //using the recyclerview row
-        //String position = addPosition.getText().toString();
-        //String price = addPrice.getText().toString();
-
-        nameAndPrices.put(position, String.valueOf(Double.parseDouble(price) + evenlyDistributedTaxAndTip));  //uncomment this
-
-        // Tell User that a price was set
-        Context context = getApplicationContext();
-        CharSequence text = "Amount set";
-        int duration = Toast.LENGTH_SHORT;
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
-        toast.show();
-
-        /*
-        if(position == "0") {
-            resultCosts.set(Integer.parseInt(position), addTwoNumberString(resultCosts.get(0), addPrice.getText().toString()));
-        } else {
-            resultCosts.add(Integer.parseInt(position), addTwoNumberString(resultCosts.get(0), addPrice.getText().toString()));
+        if (TextUtils.isEmpty(addPosition.getText().toString()) || TextUtils.isEmpty(addPrice.getText().toString())){
+            Toast.makeText(PeopleAndItems.this, "Empty field not allowed",
+                    Toast.LENGTH_SHORT).show();
         }
-        */
 
+        else {
+            String position = addPosition.getText().toString(); //uncomment this
+            String price = addPrice.getText().toString();  //uncomment this
 
+            nameAndPrices.put(position, String.valueOf(Double.parseDouble(price) + evenlyDistributedTaxAndTip));  //uncomment this
+
+            // Tell User that a price was set
+            Context context = getApplicationContext();
+            CharSequence text = "Amount set";
+            int duration = Toast.LENGTH_SHORT;
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.setGravity(Gravity.TOP | Gravity.LEFT, 500, 1500);
+            toast.show();
+
+            //cleanup
+            addPrice.setText("");
+            addPosition.setText("");
+            closeKeyBoard();
+        }
+    }
+
+    private void closeKeyBoard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager imm = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
     public String addTwoNumberString(String first, String second) {

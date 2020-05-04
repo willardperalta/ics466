@@ -88,7 +88,7 @@ public class PeopleOweMe2Activity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        launchMainActivity(view);
+                        finish();
                     }
                 });
 

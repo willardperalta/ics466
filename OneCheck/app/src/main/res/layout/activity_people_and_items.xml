@@ -88,7 +88,7 @@
         android:fontFamily="@font/voltaire" />
 
     <Button
-        android:id="@+id/add"
+        android:id="@+id/setPriceToPerson"
         android:layout_width="69dp"
         android:layout_height="34dp"
         android:layout_alignParentEnd="true"
@@ -98,8 +98,8 @@
         android:layout_marginEnd="75dp"
         android:layout_marginRight="75dp"
         android:layout_marginBottom="106dp"
-        android:background="@drawable/rounded_main_color_button"
         android:onClick="addItemToPerson"
+        android:background="@drawable/rounded_main_color_button"
         android:text="Set"
         android:textColor="@color/white" />
 

@@ -1,10 +1,14 @@
 package com.example.onecheck;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,15 +51,26 @@ public class People extends AppCompatActivity{
                 {
                     public void onClick(View view)
                     {
-                        String nameInputString = mEdit.getText().toString();
-                        int insertIndex = names.size();
 
-                        names.add(nameInputString);
-                        adapter.notifyItemInserted(insertIndex);
+                        if (TextUtils.isEmpty(mEdit.getText().toString())){
+                            Toast.makeText(People.this, "Empty field not allowed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+
+                        else {
+                            String nameInputString = mEdit.getText().toString();
+                            int insertIndex = names.size();
+
+                            names.add(nameInputString);
+                            adapter.notifyItemInserted(insertIndex);
+
+                            //cleanup
+                            mEdit.setText("");
+                            closeKeyBoard();
+                        }
                     }
                 });
 
-        // data to populate the RecyclerView with
 
 
 
@@ -66,7 +81,14 @@ public class People extends AppCompatActivity{
         recyclerView.setAdapter(adapter);
     }
 
-
+    private void closeKeyBoard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager imm = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
 
     public void launchPeopleAndItemsActivity(View view) {
         Intent intent = new Intent(this, PeopleAndItems.class);

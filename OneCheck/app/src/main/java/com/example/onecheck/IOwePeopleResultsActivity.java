@@ -77,7 +77,7 @@ public class IOwePeopleResultsActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        launchMainActivity(view);
+                        launchCheckHistoryActivity(view);
                     }
                 });
 
@@ -91,6 +91,11 @@ public class IOwePeopleResultsActivity extends AppCompatActivity {
 
     public void launchMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void launchCheckHistoryActivity(View view) {
+        Intent intent = new Intent(this, CheckHistory.class);
         startActivity(intent);
     }
 

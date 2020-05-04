@@ -3,8 +3,11 @@ package com.example.onecheck;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -71,30 +74,43 @@ public class CombinedActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        String itemInputString = itemEdit.getText().toString();
-                        String costInput = costEdit.getText().toString();
 
-                        insertIndex = combinedCostAndItems.size();
-                        items.add(itemInputString); //old but keep for now
-                        cost.add(costInput); //old but keep for now
-                        combinedCostAndItems.add(itemInputString + ": $" + costInput);
-                        //update recyclerview
-                        adapter.notifyItemInserted(insertIndex);
 
-                        //calculate and displays total
-                        total = getTotal(tax, tip, cost);
-                        totalText = df2.format(total);
-                        TextView textView = (TextView) findViewById(R.id.totalValue);
-                        textView.setText(totalText);
+                        if (TextUtils.isEmpty(itemEdit.getText().toString()) || TextUtils.isEmpty(costEdit.getText().toString())){
+                            Toast.makeText(CombinedActivity.this, "Empty item or price field not allowed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
 
-                        // Tell User that an item was added
-                        Context context = getApplicationContext();
-                        CharSequence text = "Item Added";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
-                        toast.show();
+                        else {
+                            String itemInputString = itemEdit.getText().toString();
+                            String costInput = costEdit.getText().toString();
 
+                            insertIndex = combinedCostAndItems.size();
+                            items.add(itemInputString); //old but keep for now
+                            cost.add(costInput); //old but keep for now
+                            combinedCostAndItems.add(itemInputString + ": $" + costInput);
+                            //update recyclerview
+                            adapter.notifyItemInserted(insertIndex);
+
+                            //calculate and displays total
+                            total = getTotal(tax, tip, cost);
+                            totalText = df2.format(total);
+                            TextView textView = (TextView) findViewById(R.id.totalValue);
+                            textView.setText(totalText);
+
+                            // Tell User that an item was added
+                            Context context = getApplicationContext();
+                            CharSequence text = "Item Added";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.setGravity(Gravity.TOP | Gravity.LEFT, 500, 1500);
+                            toast.show();
+
+                            //cleanup
+                            itemEdit.setText("");
+                            costEdit.setText("");
+                            closeKeyBoard();
+                        }
                     }
                 });
 
@@ -104,24 +120,37 @@ public class CombinedActivity extends AppCompatActivity {
                 {
                     public void onClick(View view)
                     {
-                        int radioId = radioGroup.getCheckedRadioButtonId();
-                        radioButton = findViewById(radioId);
-                        tax = taxEdit.getText().toString();
-                        tip = radioButton.getText().toString().substring(0,2); //don't include the hardcoded percent sign
 
-                        //calculate and displays total
-                        total = getTotal(tax, tip, cost);
-                        totalText = df2.format(total);
-                        TextView textView = (TextView) findViewById(R.id.totalValue);
-                        textView.setText(totalText);
+                        if (TextUtils.isEmpty(taxEdit.getText().toString())){
+                            Toast.makeText(CombinedActivity.this, "Empty tax field not allowed",
+                                    Toast.LENGTH_SHORT).show();
+                        }
 
-                        // Tell User that tax and tip was added
-                        Context context = getApplicationContext();
-                        CharSequence text = "Tax and Tip Added";
-                        int duration = Toast.LENGTH_SHORT;
-                        Toast toast = Toast.makeText(context, text, duration);
-                        toast.setGravity(Gravity.TOP|Gravity.LEFT, 500, 1500);
-                        toast.show();
+                        else {
+                            int radioId = radioGroup.getCheckedRadioButtonId();
+                            radioButton = findViewById(radioId);
+                            tax = taxEdit.getText().toString();
+                            taxEdit.onEditorAction(EditorInfo.IME_ACTION_DONE);
+                            tip = radioButton.getText().toString().substring(0, 2); //don't include the hardcoded percent sign
+
+                            //calculate and displays total
+                            total = getTotal(tax, tip, cost);
+                            totalText = df2.format(total);
+                            TextView textView = (TextView) findViewById(R.id.totalValue);
+                            textView.setText(totalText);
+
+                            // Tell User that tax and tip was added
+                            Context context = getApplicationContext();
+                            CharSequence text = "Tax and Tip Added";
+                            int duration = Toast.LENGTH_SHORT;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.setGravity(Gravity.TOP | Gravity.LEFT, 500, 1500);
+                            toast.show();
+
+                            //cleanup
+                            taxEdit.setText("");
+                            closeKeyBoard();
+                        }
                     }
                 });
 
@@ -156,6 +185,15 @@ public class CombinedActivity extends AppCompatActivity {
         taxAndTipAmounts = thisTotal - totalWithoutTaxAndTip;
 
         return thisTotal;
+    }
+
+    private void closeKeyBoard(){
+        View view = this.getCurrentFocus();
+        if (view != null){
+            InputMethodManager imm = (InputMethodManager)
+                    getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
     }
 
 
